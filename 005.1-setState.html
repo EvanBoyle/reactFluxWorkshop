@@ -33,6 +33,16 @@
             dropDownIsOpen : !this.state.dropDownIsOpen
           });
         },
+        handleHover: function(){
+          this.setState({
+            isHover: true
+          });
+        },
+        handleExit: function(){
+          this.setState({
+            isHover: false
+          });
+        },
         renderDropdown: function () {
           return (
             <div style={{ background: "#ccc" }}>
@@ -40,12 +50,18 @@
             </div>
           );
         },
+        renderHover: function(){
+          return (
+              <div> hovering </div>
+            );
+        },
         render : function() {
           var dropdown = this.state.dropDownIsOpen ? this.renderDropdown() : null;
-
+          var hover = this.state.isHover ? this.renderHover() : null;
           return (
-            <div onClick={this.handleClick}>
+            <div onClick={this.handleClick} onMouseOver={this.handleHover} onMouseOut={this.handleExit}>
               Click me!
+              {hover}
               {dropdown}
             </div>
           )

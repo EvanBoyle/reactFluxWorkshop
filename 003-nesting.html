@@ -35,6 +35,7 @@
 	    return (
 	      <div>
 	        RecipeForm component text
+	        <Foo/>
 	      </div>
 	    );
 	  }
@@ -51,6 +52,17 @@
 	      </div>
 	    );
 	  }
+	});
+
+	var Foo = React.createClass({
+		render: function(){
+			return(
+
+				<div>
+					<a href='http://bing.com'>lololol</a>
+				</div>
+				)
+		}
 	});
 
 	React.render(
