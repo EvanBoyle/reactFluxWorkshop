@@ -85,12 +85,13 @@
             addRecipe: function(){
                 RecipeActions.addRecipe({_id: Math.floor(Math.random()*1000000)});
             },
+            deleteItem: 
             render: function() {
                 return (
                 <div className="recipes_app">
                     <ul className="recipes">
                         { this.props.recipes.map(function(recipe, index){
-                            return <li key={index}>recipe {index} : {recipe._id}</li>
+                            return <li key={index}>recipe {index} : {recipe._id} </li>
                         })}
                     </ul>
                     <button onClick={this.addRecipe}>Add recipe</button>
