@@ -91,6 +91,7 @@
                 console.log('changed')
                 this.setState(getRecipes());
             },
+
             render: function() {
                 return <Recipes recipes={this.state.recipes} />;
             }
@@ -110,6 +111,7 @@
                 RecipeActions.deleteRecipe(index);
             },
             render: function() {
+                var self = this;
                 var recipeNodes = this.props.recipes.map(function(recipe, index){
                         return <li key={index}>Recipe {recipe} <button type="button" onClick={self.deleteRecipe.bind(self, index)}>Delete</button></li>
                     })
@@ -127,13 +129,22 @@
                 */
                 return (
                 <div className="todos_app">
-                    <input type="text" value={this.props.HOMEWORK} ref="inv"/>
+                    <RecipeInput ref="inv"/>
                     <ul className="recipes">
                         {recipeNodes}
                     </ul>
                     <button onClick={this.clearRecipes}>Clear</button>
                     <button onClick={this.addRecipe}>Add</button>
                 </div>
+                )
+            }
+        });
+
+        var RecipeInput = React.createClass({
+
+            render: function(){
+                return(
+                    <input type="text" ref="inv"/>
                 )
             }
         });
